@@ -48,6 +48,8 @@ scripts/local-demo.sh              # anvil + local facilitator; open http://127.
 - AgentTab: [approve](https://celo-sepolia.blockscout.com/tx/0xe7743ecf34fae762bd765e9cd2431953529ae8c031e11ccc21993a2f2cf150f1) · [open](https://celo-sepolia.blockscout.com/tx/0xe7d8383c83474bc0c1c81d595520aa440beee5ca240b2e3b6baa13f86c857f19) · [settle 1–5](https://celo-sepolia.blockscout.com/tx/0xea37e03cd0e25af4c1ff1c0e8245637f5ebe52c8ce3f680b71fc0b49097b0ee0) · [settle 6–10](https://celo-sepolia.blockscout.com/tx/0x1af0868800e8690a78d4d8d3ef656061c697bbff9dd0d53c43abfed9c4391374)
 
 ## Celo mainnet (USA₮)
+**Live:** AgentTab [`0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB`](https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB) (source verified). Real run with USD₮ through the official facilitator: see [MAINNET_RUN.md](MAINNET_RUN.md), reproduce with `scripts/mainnet-official.sh`.
+
 Copy `scripts/mainnet.env.example`. It sets the facilitator to `https://api.x402.celo.org` and the asset to USA₮ `0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771` (6 decimals, EIP-712 `Tether America USD`/`1`). Deploy **AgentTab only** and never set `MINT_MOCK`.
 
 ## Base Sepolia (reuse)

@@ -25,7 +25,7 @@
   - https://celo-sepolia.blockscout.com/tx/0xea37e03cd0e25af4c1ff1c0e8245637f5ebe52c8ce3f680b71fc0b49097b0ee0
   - https://celo-sepolia.blockscout.com/tx/0x1af0868800e8690a78d4d8d3ef656061c697bbff9dd0d53c43abfed9c4391374
 
-**Mainnet (USA₮):** AgentTab `<TBD>` · x402 settlement txs `<TBD>` · volume / repeat-flow stats `<TBD>`
+**Mainnet (USD₮, official facilitator api.x402.celo.org):** AgentTab https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB (verified) · 3 x402 settlements + channel open + batched settle of 5 vouchers — all tx links in [MAINNET_RUN.md](MAINNET_RUN.md)
 
 **Repo:** `<GitHub URL>` · **Demo video:** `<URL>` · **Live demo:** `<URL>` · **Team:** `<name / X / GitHub>`
 

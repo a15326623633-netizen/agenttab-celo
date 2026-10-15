@@ -8,4 +8,4 @@ export PAY_TO=$(python3 -c "import json;print(json.load(open('../.throwaway-wall
 export AGENT_TAB=${SEPOLIA_AGENT_TAB:-0xEB7e800db1a5029160AA1f93a06db1EB118e0F74} CALLS=${CALLS:-3}
 PK=$(python3 -c "import json;print(json.load(open('../.throwaway-wallet.json'))['data'][0]['private_key'])")
 PROVIDER_PK=$PK AGENT_PK=$PK npx tsx src/provider.ts > ../demo-run.official-sepolia.log 2>&1 & sleep 4
-curl -s -XPOST localhost:8402/demo/run; echo; wait
+[ -z "$NO_AUTORUN" ] && curl -s -XPOST localhost:8402/demo/run; echo; wait
