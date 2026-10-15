@@ -1,0 +1,22 @@
+agent | x402 402 challenge 402  
+provider | x402 served   
+agent | x402 paid call 1 200 0xcbb74916241f319861aae55ab00a08c043166ea146e3620274023c7a692fb63d 
+provider | x402 served   
+agent | x402 paid call 2 200 0x91de7707b2f50255d5eb3b08c5d2e3bbb76bb36fa58b477c39664132514c15b7 
+provider | x402 served   
+agent | x402 paid call 3 200 0x2112049ce29c2393904a24d1e8aeee891363a18b8c54e69094c95c8ece03bba6 
+agent | AgentTab 402 offer   
+agent | approve AgentTab success 0xe7743ecf34fae762bd765e9cd2431953529ae8c031e11ccc21993a2f2cf150f1 
+agent | open channel success 0xe7d8383c83474bc0c1c81d595520aa440beee5ca240b2e3b6baa13f86c857f19 
+agent | tab paid call 1 200  
+agent | tab paid call 2 200  
+agent | tab paid call 3 200  
+agent | tab paid call 4 200  
+provider | batch settle 5 calls  0xea37e03cd0e25af4c1ff1c0e8245637f5ebe52c8ce3f680b71fc0b49097b0ee0 
+agent | tab paid call 5 200 0xea37e03cd0e25af4c1ff1c0e8245637f5ebe52c8ce3f680b71fc0b49097b0ee0 
+agent | tab paid call 6 200  
+agent | tab paid call 7 200  
+agent | tab paid call 8 200  
+agent | tab paid call 9 200  
+provider | batch settle 10 calls  0x1af0868800e8690a78d4d8d3ef656061c697bbff9dd0d53c43abfed9c4391374 
+agent | tab paid call 10 200 0x1af0868800e8690a78d4d8d3ef656061c697bbff9dd0d53c43abfed9c4391374 

@@ -1,0 +1,23 @@
+agent | mint mock USAT (test only)  0x360b4d065c8f0428ca582664effe6534879a7e7fd7fc1bb408308676c47b28e5 
+agent | x402 402 challenge 402  
+provider | x402 served   
+agent | x402 paid call 1 200 0x8aa4bf03bafb72113c04b18dd368de60d12cc329ca5feaee37eaf21019954ebe 
+provider | x402 served   
+agent | x402 paid call 2 200 0xe2564a4671e4759fac896f04e3e25e39b7ce40a2a61d54c0ea7436fcba0cfd26 
+provider | x402 served   
+agent | x402 paid call 3 200 0xa3b4ced2cea92f60e9c10f5778d2b16fa58b268131f24505a234e25d7c704476 
+agent | AgentTab 402 offer   
+agent | approve AgentTab  0x735aadc1efb628e78322aaf8488d6d0b233737b13ccdf887ef5f396f417fe50d 
+agent | open channel  0xcdceb515d2cefedb2b3593b862c4716e8e8305236aa82cbe5ad7fe290ed10f93 
+agent | tab paid call 1 200  
+agent | tab paid call 2 200  
+agent | tab paid call 3 200  
+agent | tab paid call 4 200  
+provider | batch settle 5 calls  0x988cfbd7c1cb650a9c1382bb5e6eb1c0b7081685076d2ef4c3b98063324018a3 
+agent | tab paid call 5 200 0x988cfbd7c1cb650a9c1382bb5e6eb1c0b7081685076d2ef4c3b98063324018a3 
+agent | tab paid call 6 200  
+agent | tab paid call 7 200  
+agent | tab paid call 8 200  
+agent | tab paid call 9 200  
+provider | batch settle 10 calls  0xb22eb8a2961cf8ad85f75633ae04f16aea7a902c98d61d0167c3b5ea83475318 
+agent | tab paid call 10 200 0xb22eb8a2961cf8ad85f75633ae04f16aea7a902c98d61d0167c3b5ea83475318 

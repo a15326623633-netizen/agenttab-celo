@@ -1,0 +1,20 @@
+# --- secrets: never commit ---
+.throwaway-wallet*.json
+*wallet*.json
+.x402-key
+*.key
+.env
+.env.*
+!.env.example
+!*.env.example
+keystore/
+# --- build / deps ---
+node_modules/
+agent/dist/
+out/
+cache/
+# forge broadcast logs contain RPC/tx data; keep only the curated deployments file
+broadcast/
+# --- local run logs ---
+demo-run.*.log
+*.log

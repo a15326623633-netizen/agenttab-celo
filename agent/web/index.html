@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><title>AgentTab × x402 on Celo</title>
+<style>body{font:14px system-ui;max-width:960px;margin:2rem auto;padding:0 1rem;background:#0b0f0c;color:#e8f5e9}
+h1{color:#fcff52}button{background:#fcff52;border:0;padding:.6rem 1.2rem;font-weight:700;cursor:pointer;border-radius:6px}
+.row{display:grid;grid-template-columns:90px 1fr;gap:.5rem;padding:.45rem;border-bottom:1px solid #223}
+.agent{color:#9ecbff}.provider{color:#b8f5b0}a{color:#fcff52}code{font-size:12px;word-break:break-all}#cfg{opacity:.7;font-size:12px}</style></head>
+<body><h1>AgentTab × x402 — pay-per-call FX API on Celo</h1>
+<p>An AI agent buys USD/BRL quotes: first via <b>x402 <code>exact</code> in USA₮</b> (gasless EIP-3009, settled by the facilitator per call),
+then via an <b>AgentTab channel</b> (one deposit, off-chain vouchers per call, batched onchain settlement).</p>
+<div id="cfg"></div><p><button onclick="run()">▶ Run agent</button></p><div id="log"></div>
+<script>
+let ex="";const $=s=>document.querySelector(s);
+fetch('/config').then(r=>r.json()).then(c=>$('#cfg').textContent=`chain ${c.chainId} · AgentTab ${c.tab} · USA₮ ${c.usat} · facilitator ${c.facilitator} · price ${c.price/1e6} USA₮`);
+async function run(){await fetch('/demo/run',{method:'POST'});}
+async function poll(){const r=await (await fetch('/events')).json();ex=r.explorer;
+$('#log').innerHTML=r.events.map(e=>`<div class="row ${e.side}"><b>${e.side}</b><div>${e.step||''} ${e.status?'['+e.status+']':''}
+${e.tx?`<br><a target=_blank href="${ex}${e.tx}"><code>${e.tx}</code></a>`:''}${e.error?'<br>❌ '+e.error:''}
+${e.data?'<br><code>'+JSON.stringify(e.data)+'</code>':''}${e.offer?'<br><code>'+JSON.stringify(e.offer)+'</code>':''}</div></div>`).join('');}
+setInterval(poll,1000);
+</script></body></html>
