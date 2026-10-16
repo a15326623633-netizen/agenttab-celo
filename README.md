@@ -50,7 +50,14 @@ scripts/local-demo.sh              # anvil + local facilitator; open http://127.
 ## Celo mainnet (USA₮)
 **Live:** AgentTab [`0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB`](https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB) (source verified). Real run with USD₮ through the official facilitator: see [MAINNET_RUN.md](MAINNET_RUN.md), reproduce with `scripts/mainnet-official.sh`.
 
-Copy `scripts/mainnet.env.example`. It sets the facilitator to `https://api.x402.celo.org` and the asset to USA₮ `0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771` (6 decimals, EIP-712 `Tether America USD`/`1`). Deploy **AgentTab only** and never set `MINT_MOCK`.
+The recorded mainnet run settled in **USD₮** `0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e` (EIP-712 `Tether USD`/`1`), the asset `scripts/mainnet-official.sh` uses. For **USA₮**, copy `scripts/mainnet.env.example`, which sets `USAT=0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771` (6 decimals, EIP-712 `Tether America USD`/`1`) and the facilitator `https://api.x402.celo.org`. Deploy **AgentTab only** and never set `MINT_MOCK`.
+
+| Mainnet proof | Link |
+|---|---|
+| AgentTab (verified) | [0x3667A1e0…aCcB](https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB) |
+| Deploy | [0xef6a533e…](https://celoscan.io/tx/0xef6a533e93c3b3d4eac7da6bcb5617587d1ab40d1ce0119d184d70fc7b6437e7) |
+| x402 settlements | [1](https://celoscan.io/tx/0x0d687d37bd35337f08c7c854ad58599ef3ead9ace1b2f2d3764641f61d8e6b5e) · [2](https://celoscan.io/tx/0x11ef46123164620b749a4c7dd99be5818e31ea610b850df8bfcdd2a2829bb1e0) · [3](https://celoscan.io/tx/0x3a77c9c8cb7394e106f66fc0430229ff01ca7fe9bc4f207d699acd9d189d87ed) |
+| Channel approve / open / batched settle (5 vouchers) | [approve](https://celoscan.io/tx/0x0c9e13f183d3444d9adb47802575086dec506d90c126e9ca78f90acc31cf7c82) · [open](https://celoscan.io/tx/0xd43696999695f841144339b964063b00d50e20bb63537869ec4da7a76ce86eca) · [settle](https://celoscan.io/tx/0x764854a9a25b3e92b5a84446eec731524ad53bf9f9d85694e70a9e1be8b684a9) |
 
 ## Base Sepolia (reuse)
 `scripts/deploy-base-sepolia.sh` and `scripts/base-sepolia.env.example` cover this: `NETWORK=base-sepolia`, Base Sepolia USDC, and the public x402.org facilitator.

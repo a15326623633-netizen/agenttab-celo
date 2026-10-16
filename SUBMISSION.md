@@ -25,7 +25,26 @@
   - https://celo-sepolia.blockscout.com/tx/0xea37e03cd0e25af4c1ff1c0e8245637f5ebe52c8ce3f680b71fc0b49097b0ee0
   - https://celo-sepolia.blockscout.com/tx/0x1af0868800e8690a78d4d8d3ef656061c697bbff9dd0d53c43abfed9c4391374
 
-**Mainnet (USD₮, official facilitator api.x402.celo.org):** AgentTab https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB (verified) · 3 x402 settlements + channel open + batched settle of 5 vouchers — all tx links in [MAINNET_RUN.md](MAINNET_RUN.md)
+**Mainnet proof (Celo, chainId 42220, official facilitator `api.x402.celo.org`, USD₮ `0x48065fbB…3D5e`)**
+- AgentTab (source verified): https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB
+- Deploy: https://celoscan.io/tx/0xef6a533e93c3b3d4eac7da6bcb5617587d1ab40d1ce0119d184d70fc7b6437e7
+- x402 settlements (0.01 each, gasless for buyer):
+  - https://celoscan.io/tx/0x0d687d37bd35337f08c7c854ad58599ef3ead9ace1b2f2d3764641f61d8e6b5e
+  - https://celoscan.io/tx/0x11ef46123164620b749a4c7dd99be5818e31ea610b850df8bfcdd2a2829bb1e0
+  - https://celoscan.io/tx/0x3a77c9c8cb7394e106f66fc0430229ff01ca7fe9bc4f207d699acd9d189d87ed
+- Approve: https://celoscan.io/tx/0x0c9e13f183d3444d9adb47802575086dec506d90c126e9ca78f90acc31cf7c82
+- Channel open (tab #1, 0.05 deposit): https://celoscan.io/tx/0xd43696999695f841144339b964063b00d50e20bb63537869ec4da7a76ce86eca
+- One batched settle of 5 EIP-712 vouchers: https://celoscan.io/tx/0x764854a9a25b3e92b5a84446eec731524ad53bf9f9d85694e70a9e1be8b684a9
+- Result: 8 paid calls, 5 txs that move value. Details are in [MAINNET_RUN.md](MAINNET_RUN.md).
+
+## Demo walkthrough (about 2 min)
+1. `forge test`: 5 tests pass (batched settle, bad-signature and stale-voucher reject, refund after expiry, top-up, EIP-3009 replay protection).
+2. `scripts/local-demo.sh`, then open http://127.0.0.1:8402. This starts anvil, the local x402 facilitator and the provider.
+3. Plain `GET /x402/quote` returns **402** with the price and both rails (`exact` x402 and AgentTab).
+4. Click **Run agent**. The buyer pays 3 calls over x402: it signs EIP-3009, the facilitator verifies and settles, and each call returns a USD/BRL quote plus a tx link.
+5. The buyer then opens an AgentTab channel (one deposit) and makes 5 calls on `GET /tab/quote`, each with a signed cumulative voucher and no tx per call.
+6. The provider batch-settles the 5 vouchers in **one** onchain tx. The page's event log shows every step.
+7. Show the same flow on mainnet: open the Celoscan links above, then run `scripts/mainnet-official.sh` (needs funded gitignored wallets and an x402 API key).
 
 **Repo:** `<GitHub URL>` · **Demo video:** `<URL>` · **Live demo:** `<URL>` · **Team:** `<name / X / GitHub>`
 
