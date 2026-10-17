@@ -25,14 +25,18 @@
   - https://celo-sepolia.blockscout.com/tx/0xea37e03cd0e25af4c1ff1c0e8245637f5ebe52c8ce3f680b71fc0b49097b0ee0
   - https://celo-sepolia.blockscout.com/tx/0x1af0868800e8690a78d4d8d3ef656061c697bbff9dd0d53c43abfed9c4391374
 
-**USA₮ mainnet run (2026-10-17, USA₮ `0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771`) tagged with the then-guessed `celo_58c4cb758f93`.** Those txs **will not count** on the leaderboard: Loops House later issued the official enrollment tag **`celo_f4012694135b`**, which the code now defaults to. New activity uses the official tag. (Tagged = ERC-8021 suffix verified in calldata; x402 settlements are facilitator-submitted and credited by PayTo.)
-- ERC-8004 registration (Agent ID **9965**, tagged): https://celoscan.io/tx/0x86a6c24d49571510bcac9846d01429539b20e03764abb32724fff9c18ca5037a
-- Funding: 1 USD₮ → 1.000131 USA₮ on Uniswap v3 (0.01% pool), approve https://celoscan.io/tx/0x83c72cdbd69adff7599fba9b5623851a7e8d63d698751017ea3735fe5cc8f3ca · swap https://celoscan.io/tx/0x9aac2e6f01fbbdd12904ca4dd8910717c2465441b4636d56e13b7c479279abd0 (both tagged)
-- x402 settlements in USA₮ (0.01 each): https://celoscan.io/tx/0xefe8e046aed059675e0ead3290ef2bc2f997121379483dbdbe49c7fce07d4663 · https://celoscan.io/tx/0x79e2197d131cbd92e2681901334942ecec0fedb2c3908ff84130d349a77b8638 · https://celoscan.io/tx/0x9474d01c7e6ef33aba2f487cd951baecee0c1ce24d1ea357720c6b0c432e793f
-- AgentTab approve (tagged): https://celoscan.io/tx/0x5a3d09b21604226ee40284ee8bcf616096e52c5e69477f09bba12b53f13ed725
-- Channel open (tagged): https://celoscan.io/tx/0x9d412efc484cfcb099c27c4629bfffd5dc4c789c518aeaf7e759a3d4e4582f5e
-- Batched settle of 5 vouchers (tagged): https://celoscan.io/tx/0xc6b91763fd7bd7e58e8c6f6edef8ebcd47a2901015a07279167d7619f68d1de7
+**Scoring USA₮ mainnet run (2026-10-17, official tag `celo_f4012694135b`, USA₮ `0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771`).** AgentTab txs verified on-chain with `fromDataSuffix` → `{"codes":["celo_f4012694135b"],"schemaId":0}`. Gas for approve+open+settle ≈ **0.0628 CELO**. x402 settlements are facilitator-submitted (credited by PayTo).
+- x402 settlements in USA₮ (0.01 each): https://celoscan.io/tx/0xa4c853f5458cfa26f46d5dd86dcbcfb59505494bdaccee54831cde6987ef9c2b · https://celoscan.io/tx/0x8b252798cde77fa98aad79cd0f6fca18aca66b57cb14f69beeea5cb94745f35a · https://celoscan.io/tx/0x571366ec0e430cce76a2fdbac69b6f59813eeed73de49bad60c0724073bdf844
+- AgentTab approve (tagged `celo_f4012694135b`): https://celoscan.io/tx/0xc556ba7bcbf95f5d6dbc26870a95e7172001567054a23e09a20d4b46ebb682bb
+- Channel open (tagged `celo_f4012694135b`): https://celoscan.io/tx/0x760bb5019b43b5be6932b127a43cdf1f333c8e98198fc0294c1930c01f71f10c
+- Batched settle of 5 vouchers (tagged `celo_f4012694135b`): https://celoscan.io/tx/0x01da931933c77c079686d3b8965db501170d0723d7dc6109d59eeb5bb522dce4
 - Log: [demo-run.mainnet-usat.log](demo-run.mainnet-usat.log)
+
+**Earlier USA₮ mainnet run (same day, then-guessed tag `celo_58c4cb758f93`) — does not count.** Kept for history; Loops House later issued `celo_f4012694135b`.
+- ERC-8004 registration (Agent ID **9965**, then-guessed tag): https://celoscan.io/tx/0x86a6c24d49571510bcac9846d01429539b20e03764abb32724fff9c18ca5037a
+- Funding: 1 USD₮ → 1.000131 USA₮ on Uniswap v3 (0.01% pool), approve https://celoscan.io/tx/0x83c72cdbd69adff7599fba9b5623851a7e8d63d698751017ea3735fe5cc8f3ca · swap https://celoscan.io/tx/0x9aac2e6f01fbbdd12904ca4dd8910717c2465441b4636d56e13b7c479279abd0
+- x402: https://celoscan.io/tx/0xefe8e046aed059675e0ead3290ef2bc2f997121379483dbdbe49c7fce07d4663 · https://celoscan.io/tx/0x79e2197d131cbd92e2681901334942ecec0fedb2c3908ff84130d349a77b8638 · https://celoscan.io/tx/0x9474d01c7e6ef33aba2f487cd951baecee0c1ce24d1ea357720c6b0c432e793f
+- AgentTab approve / open / settle: https://celoscan.io/tx/0x5a3d09b21604226ee40284ee8bcf616096e52c5e69477f09bba12b53f13ed725 · https://celoscan.io/tx/0x9d412efc484cfcb099c27c4629bfffd5dc4c789c518aeaf7e759a3d4e4582f5e · https://celoscan.io/tx/0xc6b91763fd7bd7e58e8c6f6edef8ebcd47a2901015a07279167d7619f68d1de7
 
 **Earlier mainnet proof (Celo, chainId 42220, official facilitator `api.x402.celo.org`, USD₮ `0x48065fbB…3D5e`). This was a pre-tag demo run between our own wallets; the tagged USA₮ run is above.**
 - AgentTab (source verified): https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB
@@ -58,7 +62,7 @@
 **Repo:** https://github.com/zwang1111/agenttab-celo · **Demo video:** https://github.com/zwang1111/agenttab-celo/blob/main/docs/demo.mp4 (upload to YouTube or Loom if the form wants a streaming link) · **Live demo:** https://htmlpreview.github.io/?https://github.com/zwang1111/agenttab-celo/blob/main/docs/index.html (or https://zwang1111.github.io/agenttab-celo/ once Pages is enabled) (static replay of the mainnet run; the interactive version is `scripts/local-demo.sh`) · **Team:** `<name / X / GitHub, to be filled in by the entrant>`
 
 **Attribution / identity**
-- ERC-8021 tag: official Loops House enrollment tag **`celo_f4012694135b`** is appended to every AgentTab tx via `withAttribution` (BUILDERS.md recommended client extension). Note: the 2026-10-17 tagged txs used the earlier guessed `celo_58c4cb758f93` (= `codeFromRepo("zwang1111/agenttab-celo")`) and will not count; new activity uses the official tag.
+- ERC-8021 tag: official Loops House enrollment tag **`celo_f4012694135b`** is appended to every AgentTab tx via `withAttribution` (BUILDERS.md). Scoring run (2026-10-17) verified on-chain; an earlier same-day run used the guessed `celo_58c4cb758f93` and does not count.
 - x402 PayTo wallet (for crediting x402 settlements): `0x09423fBc6f3AD204d203360fA37a77F15fb7A58c`. AgentTab provider/agent wallet: `0xECd88362804889875A0086D7a15cCD2ff85aC156`.
 - ERC-8004 Agent ID: **9965** (registry `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432`, tx https://celoscan.io/tx/0x86a6c24d49571510bcac9846d01429539b20e03764abb32724fff9c18ca5037a); registration file: https://raw.githubusercontent.com/zwang1111/agenttab-celo/main/docs/agent.json
 - Gas: the buyer pays no gas on x402 (the facilitator pays). AgentTab txs are self-paid.
