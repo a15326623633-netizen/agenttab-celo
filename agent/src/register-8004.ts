@@ -7,7 +7,7 @@ import { privateKeyToAccount } from "viem/accounts";
 import { chain, RPC, EXPLORER, attribution, ATTRIBUTION_CODE } from "./common.js";
 
 const REGISTRY = (chain.id === 42220 ? "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432" : "0x8004A818BFB912233c491871b3d84c89A494BD9e") as `0x${string}`;
-const AGENT_URI = process.env.AGENT_URI ?? "https://zwang1111.github.io/agenttab-celo/agent.json";
+const AGENT_URI = process.env.AGENT_URI ?? "https://raw.githubusercontent.com/zwang1111/agenttab-celo/main/docs/agent.json";
 const abi = parseAbi([
   "function register(string agentURI) returns (uint256)",
   "event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)",
