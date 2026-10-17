@@ -1,0 +1,17 @@
+provider :8402 as 0xECd88362804889875A0086D7a15cCD2ff85aC156, facilitator https://api.x402.celo.org
+{"t":1792205750263,"side":"agent","step":"x402 402 challenge","status":402,"body":"PAYMENT-REQUIRED header"}
+{"t":1792205751017,"side":"provider","step":"x402 served","rail":"x402"}
+{"t":1792205753545,"side":"agent","step":"x402 paid call 1","status":200,"tx":"0xefe8e046aed059675e0ead3290ef2bc2f997121379483dbdbe49c7fce07d4663","data":{"quote":{"pair":"USD/BRL","rate":5.4218,"ts":1792205751017}}}
+{"t":1792205754144,"side":"provider","step":"x402 served","rail":"x402"}
+{"t":1792205761731,"side":"agent","step":"x402 paid call 2","status":200,"tx":"0x79e2197d131cbd92e2681901334942ecec0fedb2c3908ff84130d349a77b8638","data":{"quote":{"pair":"USD/BRL","rate":5.4044,"ts":1792205754144}}}
+{"t":1792205763368,"side":"provider","step":"x402 served","rail":"x402"}
+{"t":1792205767780,"side":"agent","step":"x402 paid call 3","status":200,"tx":"0x9474d01c7e6ef33aba2f487cd951baecee0c1ce24d1ea357720c6b0c432e793f","data":{"quote":{"pair":"USD/BRL","rate":5.414,"ts":1792205763368}}}
+{"t":1792205767785,"side":"agent","step":"AgentTab 402 offer","offer":{"scheme":"agenttab","contract":"0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB","chainId":42220,"token":"0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771","payTo":"0xECd88362804889875A0086D7a15cCD2ff85aC156","price":"10000"}}
+{"t":1792205769532,"side":"agent","step":"approve AgentTab","tx":"0x5a3d09b21604226ee40284ee8bcf616096e52c5e69477f09bba12b53f13ed725","status":"success"}
+{"t":1792205771339,"side":"agent","step":"open channel","tx":"0x9d412efc484cfcb099c27c4629bfffd5dc4c789c518aeaf7e759a3d4e4582f5e","status":"success"}
+{"t":1792205773808,"side":"agent","step":"tab paid call 1","status":200,"voucher":"10000","data":{"pair":"USD/BRL","rate":5.4114,"ts":1792205773806}}
+{"t":1792205773923,"side":"agent","step":"tab paid call 2","status":200,"voucher":"20000","data":{"pair":"USD/BRL","rate":5.4546,"ts":1792205773920}}
+{"t":1792205774186,"side":"agent","step":"tab paid call 3","status":200,"voucher":"30000","data":{"pair":"USD/BRL","rate":5.4013,"ts":1792205774185}}
+{"t":1792205774291,"side":"agent","step":"tab paid call 4","status":200,"voucher":"40000","data":{"pair":"USD/BRL","rate":5.4692,"ts":1792205774290}}
+{"t":1792205777301,"side":"provider","step":"batch settle 5 calls","tx":"0xc6b91763fd7bd7e58e8c6f6edef8ebcd47a2901015a07279167d7619f68d1de7","cumulative":"50000"}
+{"t":1792205777302,"side":"agent","step":"tab paid call 5","status":200,"voucher":"50000","tx":"0xc6b91763fd7bd7e58e8c6f6edef8ebcd47a2901015a07279167d7619f68d1de7","data":{"pair":"USD/BRL","rate":5.4088,"ts":1792205777301}}

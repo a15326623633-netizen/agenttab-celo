@@ -25,7 +25,16 @@
   - https://celo-sepolia.blockscout.com/tx/0xea37e03cd0e25af4c1ff1c0e8245637f5ebe52c8ce3f680b71fc0b49097b0ee0
   - https://celo-sepolia.blockscout.com/tx/0x1af0868800e8690a78d4d8d3ef656061c697bbff9dd0d53c43abfed9c4391374
 
-**Mainnet proof (Celo, chainId 42220, official facilitator `api.x402.celo.org`, USD₮ `0x48065fbB…3D5e`). This was a pre-tag demo run between our own wallets; the USA₮ run with the attribution tag is pending (`scripts/mainnet-usat.sh`).**
+**USA₮ mainnet run with attribution tag `celo_58c4cb758f93` (2026-10-17, USA₮ `0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771`).** Tagged = ERC-8021 suffix verified in calldata; x402 settlements are facilitator-submitted (credited by PayTo).
+- ERC-8004 registration (Agent ID **9965**, tagged): https://celoscan.io/tx/0x86a6c24d49571510bcac9846d01429539b20e03764abb32724fff9c18ca5037a
+- Funding: 1 USD₮ → 1.000131 USA₮ on Uniswap v3 (0.01% pool), approve https://celoscan.io/tx/0x83c72cdbd69adff7599fba9b5623851a7e8d63d698751017ea3735fe5cc8f3ca · swap https://celoscan.io/tx/0x9aac2e6f01fbbdd12904ca4dd8910717c2465441b4636d56e13b7c479279abd0 (both tagged)
+- x402 settlements in USA₮ (0.01 each): https://celoscan.io/tx/0xefe8e046aed059675e0ead3290ef2bc2f997121379483dbdbe49c7fce07d4663 · https://celoscan.io/tx/0x79e2197d131cbd92e2681901334942ecec0fedb2c3908ff84130d349a77b8638 · https://celoscan.io/tx/0x9474d01c7e6ef33aba2f487cd951baecee0c1ce24d1ea357720c6b0c432e793f
+- AgentTab approve (tagged): https://celoscan.io/tx/0x5a3d09b21604226ee40284ee8bcf616096e52c5e69477f09bba12b53f13ed725
+- Channel open (tagged): https://celoscan.io/tx/0x9d412efc484cfcb099c27c4629bfffd5dc4c789c518aeaf7e759a3d4e4582f5e
+- Batched settle of 5 vouchers (tagged): https://celoscan.io/tx/0xc6b91763fd7bd7e58e8c6f6edef8ebcd47a2901015a07279167d7619f68d1de7
+- Log: [demo-run.mainnet-usat.log](demo-run.mainnet-usat.log)
+
+**Earlier mainnet proof (Celo, chainId 42220, official facilitator `api.x402.celo.org`, USD₮ `0x48065fbB…3D5e`). This was a pre-tag demo run between our own wallets; the tagged USA₮ run is above.**
 - AgentTab (source verified): https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB
 - Deploy: https://celoscan.io/tx/0xef6a533e93c3b3d4eac7da6bcb5617587d1ab40d1ce0119d184d70fc7b6437e7
 - x402 settlements (0.01 each, gasless for buyer):
@@ -51,7 +60,7 @@
 **Attribution / identity**
 - ERC-8021 tag: `celo_58c4cb758f93` (= `codeFromRepo("zwang1111/agenttab-celo")`; replace it with the code Loops House issues) is appended to every AgentTab tx via `withAttribution`.
 - x402 PayTo wallet (for crediting x402 settlements): `0x09423fBc6f3AD204d203360fA37a77F15fb7A58c`. AgentTab provider/agent wallet: `0xECd88362804889875A0086D7a15cCD2ff85aC156`.
-- ERC-8004 Agent ID: `<pending, run agent/src/register-8004.ts>`; registration file: https://raw.githubusercontent.com/zwang1111/agenttab-celo/main/docs/agent.json
+- ERC-8004 Agent ID: **9965** (registry `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432`, tx https://celoscan.io/tx/0x86a6c24d49571510bcac9846d01429539b20e03764abb32724fff9c18ca5037a); registration file: https://raw.githubusercontent.com/zwang1111/agenttab-celo/main/docs/agent.json
 - Gas: the buyer pays no gas on x402 (the facilitator pays). AgentTab txs are self-paid.
 
 **Next:** wBRL/wARS routes via Permit2 (Track 1), Textile FX pricing for the quote feed, and a Base deployment (config already included).
