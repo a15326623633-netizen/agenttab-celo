@@ -3,7 +3,7 @@ import { createPublicClient, createWalletClient, http, parseEventLogs } from "vi
 import { privateKeyToAccount } from "viem/accounts";
 import { x402Client, wrapFetchWithPayment } from "@x402/fetch";
 import { ExactEvmScheme } from "@x402/evm/exact/client";
-import { chain, CAIP2, RPC, TAB, USAT, tabAbi, erc20Abi, types, domain } from "./common.js";
+import { chain, CAIP2, RPC, TAB, USAT, tabAbi, erc20Abi, types, domain, attribution } from "./common.js";
 
 export type Log = (e: Record<string, unknown>) => void;
 const decodeReceipt = (r: Response) => {
@@ -14,7 +14,7 @@ const decodeReceipt = (r: Response) => {
 export async function runBuyer(o: { base: string; pk: `0x${string}`; calls: number; mintMock: boolean; log: Log }) {
   const acct = privateKeyToAccount(o.pk);
   const pub = createPublicClient({ chain, transport: http(RPC) });
-  const wal = createWalletClient({ account: acct, chain, transport: http(RPC) });
+  const wal = createWalletClient({ account: acct, chain, transport: http(RPC) }).extend(attribution());
   const send = async (step: string, h: Promise<`0x${string}`>) => {
     const hash = await h; const rc = await pub.waitForTransactionReceipt({ hash }); o.log({ step, tx: hash, status: rc.status }); if (rc.status !== "success") throw new Error(`${step} reverted (insufficient token balance?)`); return rc;
   };

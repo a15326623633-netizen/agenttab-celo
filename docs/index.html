@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgentTab × x402 on Celo: live replay</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;max-width:980px;margin:2rem auto;padding:0 1rem;background:#0b0f0c;color:#e8f5e9}
+h1{color:#fcff52;margin-bottom:.2rem}h2{color:#fcff52;font-size:1.1rem;margin-top:2rem}a{color:#fcff52}
+button{background:#fcff52;border:0;padding:.6rem 1.2rem;font-weight:700;cursor:pointer;border-radius:6px;margin-right:.5rem}
+.row{display:grid;grid-template-columns:90px 1fr;gap:.5rem;padding:.45rem;border-bottom:1px solid #223;animation:f .4s}
+@keyframes f{from{opacity:0;transform:translateY(4px)}to{opacity:1}}
+.agent b{color:#9ecbff}.provider b{color:#b8f5b0}code{font-size:12px;word-break:break-all;color:#cfd8dc}
+.note{background:#18231a;border-left:4px solid #fcff52;padding:.6rem .9rem;margin:1rem 0}
+table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #223;padding:.35rem;text-align:left;font-size:14px}
+.k{display:inline-block;background:#223;padding:.1rem .45rem;border-radius:4px;margin-right:.3rem}</style></head>
+<body>
+<h1>AgentTab × x402: pay-per-call FX API on Celo</h1>
+<p>An AI agent buys USD/BRL quotes on two stablecoin rails: <b>x402 <code>exact</code></b> (EIP-3009, gasless for the buyer, settled by Celo's hosted facilitator per call) and an <b>AgentTab channel</b> (one deposit, an EIP-712 voucher per call, batched onchain settlement).
+Built for the Celo <b>Agents on Open Rails</b> hackathon, track <i>Open Corridors · USA₮ with x402</i>.</p>
+<div class="note">This page is a <b>static replay</b> of a real Celo <b>mainnet</b> run recorded on 2026-10-15 (every tx link below is live on Celoscan). The interactive version runs locally with <code>scripts/local-demo.sh</code>; it needs a provider process, so it is not hosted here. That run settled in <b>USD₮</b>; the USA₮ run is pending.</div>
+<p><span class="k">chain 42220</span><span class="k">AgentTab <a href="https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB">0x3667…aCcB</a> (verified)</span><span class="k">facilitator api.x402.celo.org</span><span class="k">price 0.01</span></p>
+<p><button id="go">▶ Replay mainnet run</button><button id="all">Show all</button> <span id="st"></span></p>
+<div id="log"></div>
+<h2>How it works</h2>
+<pre><code>agent ──GET /x402/quote──▶ provider ──402 (price, rails)──▶ agent
+  ├─ x402:     sign EIP-3009 ─▶ provider ─▶ Celo facilitator /verify + /settle ─▶ stablecoin transfer onchain
+  └─ AgentTab: open(deposit) once ─▶ N × signed vouchers (off-chain) ─▶ provider settle() every N calls</code></pre>
+<h2>Proof (Celo mainnet)</h2>
+<table><tr><th>Step</th><th>Tx</th></tr>
+<tr><td>Deploy AgentTab</td><td><a href="https://celoscan.io/tx/0xef6a533e93c3b3d4eac7da6bcb5617587d1ab40d1ce0119d184d70fc7b6437e7">0xef6a533e…</a></td></tr>
+<tr><td>x402 settlements ×3 (0.01 each)</td><td><a href="https://celoscan.io/tx/0x0d687d37bd35337f08c7c854ad58599ef3ead9ace1b2f2d3764641f61d8e6b5e">1</a> · <a href="https://celoscan.io/tx/0x11ef46123164620b749a4c7dd99be5818e31ea610b850df8bfcdd2a2829bb1e0">2</a> · <a href="https://celoscan.io/tx/0x3a77c9c8cb7394e106f66fc0430229ff01ca7fe9bc4f207d699acd9d189d87ed">3</a></td></tr>
+<tr><td>Channel approve / open</td><td><a href="https://celoscan.io/tx/0x0c9e13f183d3444d9adb47802575086dec506d90c126e9ca78f90acc31cf7c82">approve</a> · <a href="https://celoscan.io/tx/0xd43696999695f841144339b964063b00d50e20bb63537869ec4da7a76ce86eca">open</a></td></tr>
+<tr><td>One batched settle of 5 vouchers</td><td><a href="https://celoscan.io/tx/0x764854a9a25b3e92b5a84446eec731524ad53bf9f9d85694e70a9e1be8b684a9">0x764854a9…</a></td></tr></table>
+<p>Source, tests and scripts: <a href="https://github.com/zwang1111/agenttab-celo">github.com/zwang1111/agenttab-celo</a> · ERC-8004 registration file: <a href="agent.json">agent.json</a> · demo video: <a href="https://github.com/zwang1111/agenttab-celo/blob/main/docs/demo.mp4">docs/demo.mp4</a></p>
+<script>
+const ex="https://celoscan.io/tx/";let ev=[],i=0,timer;const $=s=>document.querySelector(s);
+const row=e=>`<div class="row ${e.side}"><b>${e.side}</b><div>${e.step||''} ${e.status?'['+e.status+']':''}${e.voucher?' · voucher cumulative '+(e.voucher/1e6).toFixed(2):''}
+${e.tx?`<br><a target=_blank href="${ex}${e.tx}"><code>${e.tx}</code></a>`:''}${e.data?'<br><code>'+JSON.stringify(e.data)+'</code>':''}${e.offer?'<br><code>'+JSON.stringify(e.offer)+'</code>':''}</div></div>`;
+fetch('mainnet-run.json').then(r=>r.json()).then(d=>{ev=d;$('#st').textContent=d.length+' recorded events';if(location.hash=='#all')$('#all').click()});
+$('#go').onclick=()=>{clearInterval(timer);$('#log').innerHTML='';i=0;timer=setInterval(()=>{if(i>=ev.length)return clearInterval(timer);$('#log').insertAdjacentHTML('beforeend',row(ev[i++]))},700)};
+$('#all').onclick=()=>{clearInterval(timer);$('#log').innerHTML=ev.map(row).join('')};
+</script></body></html>

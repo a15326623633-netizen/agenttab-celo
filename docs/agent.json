@@ -1,0 +1,13 @@
+{
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "name": "AgentTab FX Quote Agent",
+  "description": "Pay-per-call USD/BRL FX-quote API for AI agents on Celo. One-off calls settle in USA₮ via x402 (Celo's hosted facilitator); repeat flow uses an AgentTab EIP-712 voucher channel with batched onchain settlement.",
+  "endpoints": [
+    { "type": "web", "url": "https://zwang1111.github.io/agenttab-celo/" },
+    { "type": "x402", "url": "GET /x402/quote", "asset": "USA₮ 0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771", "facilitator": "https://api.x402.celo.org" },
+    { "type": "agenttab", "contract": "0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB", "chainId": 42220 },
+    { "type": "wallet", "address": "0xECd88362804889875A0086D7a15cCD2ff85aC156", "chainId": 42220 },
+    { "type": "source", "url": "https://github.com/zwang1111/agenttab-celo" }
+  ],
+  "supportedTrust": ["reputation"]
+}

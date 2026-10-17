@@ -25,7 +25,7 @@
   - https://celo-sepolia.blockscout.com/tx/0xea37e03cd0e25af4c1ff1c0e8245637f5ebe52c8ce3f680b71fc0b49097b0ee0
   - https://celo-sepolia.blockscout.com/tx/0x1af0868800e8690a78d4d8d3ef656061c697bbff9dd0d53c43abfed9c4391374
 
-**Mainnet proof (Celo, chainId 42220, official facilitator `api.x402.celo.org`, USD₮ `0x48065fbB…3D5e`)**
+**Mainnet proof (Celo, chainId 42220, official facilitator `api.x402.celo.org`, USD₮ `0x48065fbB…3D5e`). This was a pre-tag demo run between our own wallets; the USA₮ run with the attribution tag is pending (`scripts/mainnet-usat.sh`).**
 - AgentTab (source verified): https://celoscan.io/address/0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB
 - Deploy: https://celoscan.io/tx/0xef6a533e93c3b3d4eac7da6bcb5617587d1ab40d1ce0119d184d70fc7b6437e7
 - x402 settlements (0.01 each, gasless for buyer):
@@ -46,6 +46,12 @@
 6. The provider batch-settles the 5 vouchers in **one** onchain tx. The page's event log shows every step.
 7. Show the same flow on mainnet: open the Celoscan links above, then run `scripts/mainnet-official.sh` (needs funded gitignored wallets and an x402 API key).
 
-**Repo:** `<GitHub URL>` · **Demo video:** `<URL>` · **Live demo:** `<URL>` · **Team:** `<name / X / GitHub>`
+**Repo:** https://github.com/zwang1111/agenttab-celo · **Demo video:** https://github.com/zwang1111/agenttab-celo/blob/main/docs/demo.mp4 (upload to YouTube or Loom if the form wants a streaming link) · **Live demo:** https://zwang1111.github.io/agenttab-celo/ (static replay of the mainnet run; the interactive version is `scripts/local-demo.sh`) · **Team:** `<name / X / GitHub, to be filled in by the entrant>`
+
+**Attribution / identity**
+- ERC-8021 tag: `celo_58c4cb758f93` (= `codeFromRepo("zwang1111/agenttab-celo")`; replace it with the code Loops House issues) is appended to every AgentTab tx via `withAttribution`.
+- x402 PayTo wallet (for crediting x402 settlements): `0x09423fBc6f3AD204d203360fA37a77F15fb7A58c`. AgentTab provider/agent wallet: `0xECd88362804889875A0086D7a15cCD2ff85aC156`.
+- ERC-8004 Agent ID: `<pending, run agent/src/register-8004.ts>`; registration file: https://zwang1111.github.io/agenttab-celo/agent.json
+- Gas: the buyer pays no gas on x402 (the facilitator pays). AgentTab txs are self-paid.
 
 **Next:** wBRL/wARS routes via Permit2 (Track 1), Textile FX pricing for the quote feed, and a Base deployment (config already included).

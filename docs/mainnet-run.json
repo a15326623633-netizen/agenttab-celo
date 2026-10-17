@@ -1,0 +1,164 @@
+[
+ {
+  "t": 1792049716995,
+  "side": "agent",
+  "step": "x402 402 challenge",
+  "status": 402,
+  "body": "PAYMENT-REQUIRED header"
+ },
+ {
+  "t": 1792049717605,
+  "side": "provider",
+  "step": "x402 served",
+  "rail": "x402"
+ },
+ {
+  "t": 1792049740005,
+  "side": "agent",
+  "step": "x402 paid call 1",
+  "status": 200,
+  "tx": "0x0d687d37bd35337f08c7c854ad58599ef3ead9ace1b2f2d3764641f61d8e6b5e",
+  "data": {
+   "quote": {
+    "pair": "USD/BRL",
+    "rate": 5.4363,
+    "ts": 1792049717606
+   }
+  }
+ },
+ {
+  "t": 1792049742008,
+  "side": "provider",
+  "step": "x402 served",
+  "rail": "x402"
+ },
+ {
+  "t": 1792049750287,
+  "side": "agent",
+  "step": "x402 paid call 2",
+  "status": 200,
+  "tx": "0x11ef46123164620b749a4c7dd99be5818e31ea610b850df8bfcdd2a2829bb1e0",
+  "data": {
+   "quote": {
+    "pair": "USD/BRL",
+    "rate": 5.4531,
+    "ts": 1792049742008
+   }
+  }
+ },
+ {
+  "t": 1792049752029,
+  "side": "provider",
+  "step": "x402 served",
+  "rail": "x402"
+ },
+ {
+  "t": 1792049760358,
+  "side": "agent",
+  "step": "x402 paid call 3",
+  "status": 200,
+  "tx": "0x3a77c9c8cb7394e106f66fc0430229ff01ca7fe9bc4f207d699acd9d189d87ed",
+  "data": {
+   "quote": {
+    "pair": "USD/BRL",
+    "rate": 5.4213,
+    "ts": 1792049752029
+   }
+  }
+ },
+ {
+  "t": 1792049760361,
+  "side": "agent",
+  "step": "AgentTab 402 offer",
+  "offer": {
+   "scheme": "agenttab",
+   "contract": "0x3667A1e0786ea7dbDfB807833e7B8ac65894aCcB",
+   "chainId": 42220,
+   "token": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+   "payTo": "0xECd88362804889875A0086D7a15cCD2ff85aC156",
+   "price": "10000"
+  }
+ },
+ {
+  "t": 1792049763554,
+  "side": "agent",
+  "step": "approve AgentTab",
+  "tx": "0x0c9e13f183d3444d9adb47802575086dec506d90c126e9ca78f90acc31cf7c82",
+  "status": "success"
+ },
+ {
+  "t": 1792049765363,
+  "side": "agent",
+  "step": "open channel",
+  "tx": "0xd43696999695f841144339b964063b00d50e20bb63537869ec4da7a76ce86eca",
+  "status": "success"
+ },
+ {
+  "t": 1792049767855,
+  "side": "agent",
+  "step": "tab paid call 1",
+  "status": 200,
+  "voucher": "10000",
+  "data": {
+   "pair": "USD/BRL",
+   "rate": 5.4882,
+   "ts": 1792049767853
+  }
+ },
+ {
+  "t": 1792049767955,
+  "side": "agent",
+  "step": "tab paid call 2",
+  "status": 200,
+  "voucher": "20000",
+  "data": {
+   "pair": "USD/BRL",
+   "rate": 5.4843,
+   "ts": 1792049767954
+  }
+ },
+ {
+  "t": 1792049768103,
+  "side": "agent",
+  "step": "tab paid call 3",
+  "status": 200,
+  "voucher": "30000",
+  "data": {
+   "pair": "USD/BRL",
+   "rate": 5.4883,
+   "ts": 1792049768102
+  }
+ },
+ {
+  "t": 1792049768205,
+  "side": "agent",
+  "step": "tab paid call 4",
+  "status": 200,
+  "voucher": "40000",
+  "data": {
+   "pair": "USD/BRL",
+   "rate": 5.4056,
+   "ts": 1792049768204
+  }
+ },
+ {
+  "t": 1792049769240,
+  "side": "provider",
+  "step": "batch settle 5 calls",
+  "tx": "0x764854a9a25b3e92b5a84446eec731524ad53bf9f9d85694e70a9e1be8b684a9",
+  "cumulative": "50000"
+ },
+ {
+  "t": 1792049769241,
+  "side": "agent",
+  "step": "tab paid call 5",
+  "status": 200,
+  "voucher": "50000",
+  "tx": "0x764854a9a25b3e92b5a84446eec731524ad53bf9f9d85694e70a9e1be8b684a9",
+  "data": {
+   "pair": "USD/BRL",
+   "rate": 5.4094,
+   "ts": 1792049769240
+  }
+ }
+]

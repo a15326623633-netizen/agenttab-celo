@@ -10,14 +10,14 @@ import { privateKeyToAccount } from "viem/accounts";
 import { paymentMiddleware, x402ResourceServer } from "@x402/hono";
 import { ExactEvmScheme } from "@x402/evm/exact/server";
 import { HTTPFacilitatorClient } from "@x402/core/server";
-import { chain, CAIP2, RPC, TAB, USAT, USAT_EXTRA, FACILITATOR_URL, EXPLORER, tabAbi, types, domain } from "./common.js";
+import { chain, CAIP2, RPC, TAB, USAT, USAT_EXTRA, FACILITATOR_URL, EXPLORER, tabAbi, types, domain, attribution } from "./common.js";
 import { runBuyer } from "./buyer.js";
 
 const PRICE = BigInt(process.env.PRICE ?? "10000"); // 0.01 USA₮
 const SETTLE_EVERY = Number(process.env.SETTLE_EVERY ?? 5);
 const acct = privateKeyToAccount(process.env.PROVIDER_PK as `0x${string}`);
 const pub = createPublicClient({ chain, transport: http(RPC) });
-const wal = createWalletClient({ account: acct, chain, transport: http(RPC) });
+const wal = createWalletClient({ account: acct, chain, transport: http(RPC) }).extend(attribution());
 const events: Record<string, unknown>[] = [];
 const log = (e: Record<string, unknown>) => { const x = { t: Date.now(), ...e }; events.push(x); console.log(JSON.stringify(x)); };
 const quote = () => ({ pair: "USD/BRL", rate: +(5.4 + Math.random() / 10).toFixed(4), ts: Date.now() });

@@ -2,6 +2,8 @@
 
 > Built for the Celo **Agents on Open Rails** hackathon (Track 2 · USA₮ with x402). The code is chain-agnostic and also runs on Base.
 
+**Live demo (static replay of the real mainnet run):** https://zwang1111.github.io/agenttab-celo/ · **Demo video:** [docs/demo.mp4](docs/demo.mp4) (3.5 min, rendered by `scripts/render-video.py`) · **ERC-8004 registration file:** [docs/agent.json](docs/agent.json)
+
 AI agents can't sign up for subscriptions or manage API keys, but they can pay. This repo is a pay-per-call **FX-quote API (USD/BRL)** that agents pay for in stablecoins on **two rails**:
 
 | Rail | Endpoint | How it pays | Best for |
@@ -77,3 +79,16 @@ It is a regulated USD and EIP-3009 native (gasless for the payer), and on Celo i
 - **AgentTab 通道**：代理先存一次押金，之后每次调用签一张链下凭证，服务方批量在链上结算。适合同一个代理和服务方之间的高频重复交易。
 
 已在 Celo Sepolia 上用官方结算服务跑通，交易链接见上文。主网换成 USA₮，Base 只需改配置即可复用。
+
+## Hackathon compliance (Agents on Open Rails)
+| Requirement | Status |
+|---|---|
+| Celo mainnet, public repo | ✅ AgentTab live and verified on mainnet; this repo is public |
+| ERC-8021 attribution tag on every tx | ✅ Wired in code: every viem wallet client is extended with `withAttribution(ATTRIBUTION_CODE)` from `@celo/attribution-tags` (`agent/src/common.ts`). The default is `codeFromRepo("zwang1111/agenttab-celo")` = `celo_58c4cb758f93`; set `ATTRIBUTION_CODE` if the Loops House entry issues a different one. Local check: [runs/attribution-local-check.txt](runs/attribution-local-check.txt). The 2026-10-15 mainnet run predates the tag, so it **does not count** toward the leaderboard. |
+| x402 attribution | x402 settlements are submitted by the facilitator and can't carry a tag; the leaderboard credits them by **PayTo** address (declare the payee wallet in the submission) |
+| ERC-8004 Agent ID | ⏳ Script ready, not yet sent: `AGENT_PK=… NETWORK=mainnet npx tsx src/register-8004.ts` (dry run, estimated ~180k gas), add `CONFIRM=1` to send. The registry is `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432` and the agent URI is `https://zwang1111.github.io/agenttab-celo/agent.json` |
+| Settlement in USA₮ | ⏳ `scripts/mainnet-usat.sh` (USA₮ `0xD2ab…F771`, `Tether America USD`/`1`). Needs about 0.1 USA₮ in the buyer wallet (Self faucet, or a ~$1 swap) |
+| Independent users | ⏳ Judging counts wallets that aren't ours and had Celo activity before the hackathon. The recorded runs are self-to-self demos |
+
+## Demo video
+`python3 scripts/render-video.py` renders `docs/demo.mp4` from slides, the real mainnet run log (`docs/mainnet-run.json`), `forge test` output, the attribution check, and headless-Chrome screenshots of the replay page (same method as our other hackathon videos). It needs ffmpeg, Pillow and DejaVu fonts.
