@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Celo MAINNET run settling in USA₮ (Tether America USD, 0xD2ab…F771) via the official x402 facilitator.
 # Needs: ~0.1 USA₮ in the buyer wallet (Google Cloud Web3 faucet + Self, or a ~$1 swap), gitignored wallet files,
-# .x402-key, and ATTRIBUTION_CODE from your Loops House entry. Costs real money: run only with approval.
+# .x402-key, and ATTRIBUTION_CODE=celo_f4012694135b (official Loops House enrollment tag; default in agent/src/common.ts). Costs real money: run only with approval.
 set -e; cd "$(dirname "$0")/../agent"
 export NETWORK=mainnet RPC_URL=https://forno.celo.org EXPLORER=https://celoscan.io/tx/
 export FACILITATOR_URL=https://api.x402.celo.org X402_API_KEY="${X402_API_KEY:-$(cat ../.x402-key)}"

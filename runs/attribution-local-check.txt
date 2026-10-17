@@ -1,7 +1,9 @@
 ERC-8021 attribution check, local anvil run (2026-10-17, UTC+8).
-Code = codeFromRepo("zwang1111/agenttab-celo") = celo_58c4cb758f93
+Code = official Loops House enrollment tag = celo_f4012694135b (env default; official constant celo_f4012694135b)
 Decoded with @celo/attribution-tags fromDataSuffix(tx.input):
-  approve AgentTab   0x4efd9dc0f8…  {"codes":["celo_58c4cb758f93"],"schemaId":0}
-  open channel       0x934d1cc591…  {"codes":["celo_58c4cb758f93"],"schemaId":0}
-  batch settle 1-5   0x8ee4f2ef2e…  {"codes":["celo_58c4cb758f93"],"schemaId":0}
-  x402 settlement    0x485238f523…  null   (sent by the facilitator: x402 txs are credited by PayTo address, not tag)
+  approve AgentTab   0x37ea77e06e…  {"codes":["celo_f4012694135b"],"schemaId":0}
+  open channel       0xcdbc1722be…  {"codes":["celo_f4012694135b"],"schemaId":0}
+  batch settle 1-5   0x72147c3f57…  {"codes":["celo_f4012694135b"],"schemaId":0}
+  x402 settlement    0x678593c120…  null
+  (x402 sent by facilitator: credited by PayTo address, not tag)
+OK: AgentTab approve/open/settle carry official tag celo_f4012694135b (schemaId 0).

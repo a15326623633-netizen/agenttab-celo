@@ -1,5 +1,5 @@
 import { defineChain, getAddress } from "viem";
-import { codeFromRepo, withAttribution } from "@celo/attribution-tags";
+import { withAttribution } from "@celo/attribution-tags";
 import { celo, baseSepolia } from "viem/chains";
 export const celoSepolia = defineChain({
   id: 11142220, name: "Celo Sepolia", nativeCurrency: { name: "CELO", symbol: "CELO", decimals: 18 },
@@ -29,12 +29,14 @@ export const erc20Abi = [
   { type: "function", name: "approve", stateMutability: "nonpayable", inputs: [{ type: "address" }, { type: "uint256" }], outputs: [{ type: "bool" }] },
   { type: "function", name: "mint", stateMutability: "nonpayable", inputs: [{ type: "address" }, { type: "uint256" }], outputs: [] },
 ] as const;
-// ERC-8021 attribution tag (Agents on Open Rails leaderboard). The hackathon platform derives the code from the
-// GitHub repo slug; override with ATTRIBUTION_CODE if Loops House issues a different one. Every wallet client is
-// extended with withAttribution(), so every AgentTab tx (approve/open/settle) carries the suffix.
+// ERC-8021 attribution tag (Agents on Open Rails leaderboard). Loops House issued the official enrollment tag
+// celo_f4012694135b (distinct from codeFromRepo("zwang1111/agenttab-celo") = celo_58c4cb758f93). Override with
+// ATTRIBUTION_CODE if needed. Every wallet client is extended with withAttribution(), so every AgentTab tx
+// (approve/open/settle) carries the ERC-8021 Schema 0 suffix — same approach as BUILDERS.md.
 // x402 settlements are sent by Celo's facilitator and cannot carry a tag: they are credited via the PayTo address.
 export const REPO_SLUG = process.env.REPO_SLUG ?? "zwang1111/agenttab-celo";
-export const ATTRIBUTION_CODE = process.env.ATTRIBUTION_CODE ?? codeFromRepo(REPO_SLUG);
-if (!process.env.ATTRIBUTION_CODE_ALLOW_MISMATCH && ATTRIBUTION_CODE !== codeFromRepo(REPO_SLUG))
-  console.warn(`[attribution] ${ATTRIBUTION_CODE} != codeFromRepo(${REPO_SLUG}); set ATTRIBUTION_CODE_ALLOW_MISMATCH=1 if Loops issued it`);
+export const OFFICIAL_ATTRIBUTION_CODE = "celo_f4012694135b";
+export const ATTRIBUTION_CODE = process.env.ATTRIBUTION_CODE ?? OFFICIAL_ATTRIBUTION_CODE;
+if (ATTRIBUTION_CODE !== OFFICIAL_ATTRIBUTION_CODE)
+  console.warn(`[attribution] using ${ATTRIBUTION_CODE}; official Loops House tag is ${OFFICIAL_ATTRIBUTION_CODE}`);
 export const attribution = () => withAttribution(ATTRIBUTION_CODE);

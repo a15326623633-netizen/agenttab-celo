@@ -25,7 +25,7 @@
   - https://celo-sepolia.blockscout.com/tx/0xea37e03cd0e25af4c1ff1c0e8245637f5ebe52c8ce3f680b71fc0b49097b0ee0
   - https://celo-sepolia.blockscout.com/tx/0x1af0868800e8690a78d4d8d3ef656061c697bbff9dd0d53c43abfed9c4391374
 
-**USA₮ mainnet run with attribution tag `celo_58c4cb758f93` (2026-10-17, USA₮ `0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771`).** Tagged = ERC-8021 suffix verified in calldata; x402 settlements are facilitator-submitted (credited by PayTo).
+**USA₮ mainnet run (2026-10-17, USA₮ `0xD2ab3C9A02DBBAB236BfEC45D1d755DF4267F771`) tagged with the then-guessed `celo_58c4cb758f93`.** Those txs **will not count** on the leaderboard: Loops House later issued the official enrollment tag **`celo_f4012694135b`**, which the code now defaults to. New activity uses the official tag. (Tagged = ERC-8021 suffix verified in calldata; x402 settlements are facilitator-submitted and credited by PayTo.)
 - ERC-8004 registration (Agent ID **9965**, tagged): https://celoscan.io/tx/0x86a6c24d49571510bcac9846d01429539b20e03764abb32724fff9c18ca5037a
 - Funding: 1 USD₮ → 1.000131 USA₮ on Uniswap v3 (0.01% pool), approve https://celoscan.io/tx/0x83c72cdbd69adff7599fba9b5623851a7e8d63d698751017ea3735fe5cc8f3ca · swap https://celoscan.io/tx/0x9aac2e6f01fbbdd12904ca4dd8910717c2465441b4636d56e13b7c479279abd0 (both tagged)
 - x402 settlements in USA₮ (0.01 each): https://celoscan.io/tx/0xefe8e046aed059675e0ead3290ef2bc2f997121379483dbdbe49c7fce07d4663 · https://celoscan.io/tx/0x79e2197d131cbd92e2681901334942ecec0fedb2c3908ff84130d349a77b8638 · https://celoscan.io/tx/0x9474d01c7e6ef33aba2f487cd951baecee0c1ce24d1ea357720c6b0c432e793f
@@ -58,7 +58,7 @@
 **Repo:** https://github.com/zwang1111/agenttab-celo · **Demo video:** https://github.com/zwang1111/agenttab-celo/blob/main/docs/demo.mp4 (upload to YouTube or Loom if the form wants a streaming link) · **Live demo:** https://htmlpreview.github.io/?https://github.com/zwang1111/agenttab-celo/blob/main/docs/index.html (or https://zwang1111.github.io/agenttab-celo/ once Pages is enabled) (static replay of the mainnet run; the interactive version is `scripts/local-demo.sh`) · **Team:** `<name / X / GitHub, to be filled in by the entrant>`
 
 **Attribution / identity**
-- ERC-8021 tag: `celo_58c4cb758f93` (= `codeFromRepo("zwang1111/agenttab-celo")`; replace it with the code Loops House issues) is appended to every AgentTab tx via `withAttribution`.
+- ERC-8021 tag: official Loops House enrollment tag **`celo_f4012694135b`** is appended to every AgentTab tx via `withAttribution` (BUILDERS.md recommended client extension). Note: the 2026-10-17 tagged txs used the earlier guessed `celo_58c4cb758f93` (= `codeFromRepo("zwang1111/agenttab-celo")`) and will not count; new activity uses the official tag.
 - x402 PayTo wallet (for crediting x402 settlements): `0x09423fBc6f3AD204d203360fA37a77F15fb7A58c`. AgentTab provider/agent wallet: `0xECd88362804889875A0086D7a15cCD2ff85aC156`.
 - ERC-8004 Agent ID: **9965** (registry `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432`, tx https://celoscan.io/tx/0x86a6c24d49571510bcac9846d01429539b20e03764abb32724fff9c18ca5037a); registration file: https://raw.githubusercontent.com/zwang1111/agenttab-celo/main/docs/agent.json
 - Gas: the buyer pays no gas on x402 (the facilitator pays). AgentTab txs are self-paid.
